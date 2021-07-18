@@ -10,7 +10,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Github page deployment
 
-Run `ng build --prod --base-href https://kiwsan.github.io/angular6-realworld/` to build the production bundle, and than run the command `npx angular-cli-ghpages --dir=dist/angular-realword-project` to publish the application
+Run `ng build --prod --base-href https://kiwsan.github.io/angular6-realworld/` to build the production bundle, and than run the command `npx angular-cli-ghpages --dir=dist/angular-realword-project` to publish the application to Github page environment.
 
 ## Code scaffolding
 
