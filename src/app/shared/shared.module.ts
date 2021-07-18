@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ArticleListComponent } from '../components/article-list/article-list.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { RouterModule } from '@angular/router';
-import { AntPaginationComponent } from './me/ant-pagination/ant-pagination.component';
+import { AntPaginationComponent } from './meta/ant-pagination/ant-pagination.component';
 
 const COMPONENTS = [
   ArticleListComponent,
