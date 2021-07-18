@@ -1,6 +1,6 @@
-# AngularRealwordProject
+# Angular 6 Real World implementation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.9.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.9 and implementations of the Thinkster 'Real World' front end 'Conduit' which is a Medium clone.
 
 ## Development server
 
