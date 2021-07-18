@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { finalize } from 'rxjs/internal/operators/finalize';
+import { tap } from 'rxjs/operators';
 import { Article } from 'src/app/models/article.model';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -63,7 +64,17 @@ export class ArticleListComponent implements OnChanges, OnInit {
     this.isLoading = true;
 
     articleFeed.
-      pipe(finalize(() => this.isLoading = false)).
+      pipe(tap({
+        next: (res) => {
+          // console.log('tap success');
+          this.isLoading = false;
+        },
+        error: (err) => {
+          // console.log('tap error', err);
+          this.isLoading = false;
+        },
+        complete: () => console.log('tap complete')
+      })).
       subscribe(res => {
         this.articles = res.articles;
         this.articlesCount = res.articlesCount;

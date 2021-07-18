@@ -15,3 +15,7 @@
 .text-right {
     text-align: right;
 }
+
+.ant-skeleton-with-avatar .ant-skeleton-content .ant-skeleton-title+.ant-skeleton-paragraph {
+    padding-left: 0;
+}

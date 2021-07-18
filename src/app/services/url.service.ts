@@ -1,46 +1,44 @@
 
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, InjectionToken } from '@angular/core';
 
+export const API_URL = new InjectionToken<string>('apiUrl');
 @Injectable({
   providedIn: 'root'
 })
 export class UrlService {
 
-  // TODO - inject this
-  private baseUrl = 'https://conduit.productionready.io';
-
-  constructor() { }
+  constructor(@Inject(API_URL) public urlPrefix) { }
 
   getFeedArticlesUrl(): any {
-    return `${this.baseUrl}/api/articles/feed`;
+    return `${this.urlPrefix}/api/articles/feed`;
   }
 
   getCurrentUserUrl(): string {
-    return `${this.baseUrl}/api/user`;
+    return `${this.urlPrefix}/api/user`;
   }
 
   getArticlesUrl(): string {
-    return `${this.baseUrl}/api/articles`;
+    return `${this.urlPrefix}/api/articles`;
   }
 
   getArticleUrl(articleSlug: string): string {
-    return `${this.baseUrl}/api/articles/${articleSlug}`;
+    return `${this.urlPrefix}/api/articles/${articleSlug}`;
   }
 
   getPopularTagsUrl(): string {
-    return `${this.baseUrl}/api/tags`;
+    return `${this.urlPrefix}/api/tags`;
   }
 
   getLoginUrl(): string {
-    return `${this.baseUrl}/api/users/login`;
+    return `${this.urlPrefix}/api/users/login`;
   }
 
   getUsersUrl(): string {
-    return `${this.baseUrl}/api/users`;
+    return `${this.urlPrefix}/api/users`;
   }
 
   getProfileUrl(username: string): string {
-    return `${this.baseUrl}/api/profiles/${username}`;
+    return `${this.urlPrefix}/api/profiles/${username}`;
   }
 
   getFollowUrl(username: string): string {
