@@ -23,7 +23,8 @@
         </div>
     </div>
 
-    <nz-pagination *ngIf="!isLoading" [nzPageIndex]="currentPage" [nzTotal]="articlesCount" (nzPageIndexChange)="onPageIndexChange($event)"></nz-pagination>
+    <app-ant-pagination *ngIf="!isLoading" [nzPageIndex]="currentPage" [nzTotal]="articlesCount" (nzPageIndexChange)="onPageIndexChange($event)">
+    </app-ant-pagination>
 
     <div *ngIf="isLoading">
         <nz-skeleton [nzAvatar]="true" [nzParagraph]="{ rows: 3 }"></nz-skeleton>

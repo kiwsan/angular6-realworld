@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/internal/operators/finalize';
 import { tap } from 'rxjs/operators';
 import { Article } from 'src/app/models/article.model';
 import { ApiService } from 'src/app/services/api.service';
@@ -12,7 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ArticleListComponent implements OnChanges, OnInit {
 
-  private pageSize = 20;
+  private pageSize = 10;
 
   constructor(private apiService: ApiService) {
     this.currentPage = 1;
