@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{TtBp:function(n,o,c){"use strict";c.r(o),c.d(o,"WelcomeModule",function(){return e});var e=function(){}}}]);
