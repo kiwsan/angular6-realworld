@@ -1,1 +1,17 @@
+/* Ant Design CSS Utilities [https://www.npmjs.com/package/antd-css-utilities] */
+
+@import "../node_modules/antd-css-utilities/utility.min.css";
+
 /* You can add global styles to this file, and also import other style files */
+
+.text-white {
+    color: #fff;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
