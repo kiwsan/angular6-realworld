@@ -1,26 +1,37 @@
 <div>
     <div *ngIf="!isLoading">
-        <div class="article-preview" *ngFor="let article of articles">
-            <div class="article-meta">
-                <a [routerLink]="['/profile', article.author.username]"><img style="width: 200px" src="{{ article.author.image }}" /></a>
-                <div class="info">
-                    <a [routerLink]="['/profile', article.author.username]" class="author">{{ article.author.username }}</a>
-                    <span class="date">{{ article.createdAt }}</span>
+
+        <div nz-row nzGutter="16">
+            <div nz-col class="gutter-row mb-4" nzSpan="24" *ngFor="let article of articles">
+                <div class="gutter-box">
+                    <nz-card [nzCover]="coverTemplate" [nzActions]="[actionSetting,actionEdit,actionEllipsis]">
+                        <nz-card-meta [nzTitle]="article.title" [nzDescription]="article.description" [nzAvatar]="avatarTemplate">
+                        </nz-card-meta>
+                        <p class="mt-4">{{ article.createdAt | date:'medium'}}</p>
+                    </nz-card>
+                    <ng-template #avatarTemplate>
+                        <a [routerLink]="['/profile', article.author.username]" class="author">
+                            <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+                        </a>
+                    </ng-template>
+                    <ng-template #coverTemplate>
+                        <img alt="cover image" src="{{article.author.image }}" style="width: 200px; height: 100%;" />
+                    </ng-template>
+                    <ng-template #actionSetting>
+                        <nz-badge [nzCount]="article.favoritesCount" [nzStyle]="{ backgroundColor: '#52c41a' }"></nz-badge>
+                    </ng-template>
+                    <ng-template #actionEdit>
+                        <a [routerLink]="['/profile', article.author.username]" class="author">{{ article.author.username }}</a>
+                    </ng-template>
+                    <ng-template #actionEllipsis>
+                        <a class="preview-link" [routerLink]="['/articles', article.slug]">
+                            <i nz-icon type="ellipsis"></i>
+                        </a>
+                    </ng-template>
                 </div>
-
-                <button class="btn btn-outline-primary btn-sm pull-xs-right"><i class="ion-heart"></i>
-          {{ article.favoritesCount }}</button>
             </div>
-
-            <a class="preview-link" [routerLink]="['/articles', article.slug]">
-                <h1>{{ article.title }}</h1>
-                <p>{{ article.description }}</p>
-                <span>Read more...</span>
-            </a>
-
-            <nz-divider></nz-divider>
-
         </div>
+
     </div>
 
     <app-ant-pagination *ngIf="!isLoading" [nzPageIndex]="currentPage" [nzTotal]="articlesCount" (nzPageIndexChange)="onPageIndexChange($event)">
